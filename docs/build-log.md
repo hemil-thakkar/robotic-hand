@@ -18,7 +18,7 @@ they're what you'll talk about in an interview.
 
 **Next step:** Continue to CAD and learn more about Arduino
 
-**Photos:** docs/photos/robotic-hand-servo-test
+**Photos:** [docs/photos/robotic-hand-servo-test](url)
 
 ---
 
