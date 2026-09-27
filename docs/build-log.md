@@ -6,19 +6,19 @@ they're what you'll talk about in an interview.
 
 ---
 
-## YYYY-MM-DD — Session 1: first print
+## 2026-09-27 — Session 1: first servo test
 
-**Goal:**
+**Goal:** The goal was to just test sample code for a servo on wokwi.com
 
-**What I did:**
+**What I did:** Added code from Claude to the Arduino UNO simulation, added servo into the simulation and its libraries
 
-**What went wrong:**
+**What went wrong:** Initially forgot to add libraries to simulation
 
-**What I learned:**
+**What I learned:** Do not forget to add necessary libraries
 
-**Next step:**
+**Next step:** Continue to CAD and learn more about Arduino
 
-**Photos:** `docs/photos/`
+**Photos:** [docs/photos/robotic-hand-servo-test](url)
 
 ---
 
