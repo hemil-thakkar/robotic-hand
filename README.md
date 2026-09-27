@@ -31,7 +31,8 @@ See [`docs/build-log.md`](docs/build-log.md) for session notes.
 | `cad/` | My Fusion designs and exported STL files |
 | `cad/reference/` | InMoov STL files as printed (not my designs) |
 | `code/` | Arduino sketches and analysis scripts |
-| `docs/` | Build log, photos, test results |
+| `docs/` | Build log and test results |
+| `docs/photos/` | Build photos, named by date |
 | `data/` | Measurements from tests |
 
 ## Built with
@@ -41,6 +42,11 @@ See [`docs/build-log.md`](docs/build-log.md) for session notes.
 - Arduino for servo control
 
 ## Credit
+
+Mechanical design based on the InMoov open-source humanoid robot by
+Gael Langevin, licensed CC-BY-NC. Files in `cad/reference/` are his.
+My own parts and code are in `cad/`, `code/`, and noted as mine in the
+build log.
 
 Mechanical design based on the InMoov open-source humanoid robot by
 Gael Langevin, licensed CC-BY-NC. Files in `cad/reference/` are his.
