@@ -18,13 +18,18 @@ Biomedical engineering, Georgia Tech.
 
 ## Status
 
-Stage 0: printing the first finger.
+**Stage 0 — first finger.** Repo set up. Next: print the InMoov finger
+parts at the Georgia Tech Invention Studio, then assemble and string
+the tendon.
+
+See [`docs/build-log.md`](docs/build-log.md) for session notes.
 
 ## Repo layout
 
 | Folder | Contents |
 |---|---|
 | `cad/` | My Fusion designs and exported STL files |
+| `cad/reference/` | InMoov STL files as printed (not my designs) |
 | `code/` | Arduino sketches and analysis scripts |
 | `docs/` | Build log, photos, test results |
 | `data/` | Measurements from tests |
@@ -38,5 +43,6 @@ Stage 0: printing the first finger.
 ## Credit
 
 Mechanical design based on the InMoov open-source humanoid robot by
-Gael Langevin, licensed CC-BY-NC. My own parts and code are in `cad/`
-and `code/` and noted as mine in the build log.
+Gael Langevin, licensed CC-BY-NC. Files in `cad/reference/` are his.
+My own parts and code are in `cad/`, `code/`, and noted as mine in the
+build log.
