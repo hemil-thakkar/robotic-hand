@@ -1,0 +1,16 @@
+# Fusion backups
+*.f3d.bak
+*.f3z.bak
+
+# Slicer output (large, regenerate from STL)
+*.gcode
+*.3mf
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
