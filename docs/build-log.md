@@ -83,6 +83,90 @@ nuts (~22–25 mm long) from Robo 101, WEAR, or the Hive.
 
 **Photos:** [photos/robotic-hand-servo-test.png](url)
 
+## 2026-09-30 — Session 2: first prints, pin failure, v2 redesign
+
+**Goal:** Print the three finger segments and the snap-fit pivot pins,
+assemble the finger, and check fit and range of motion.
+
+**What I did:**
+
+- Printed all three segments in PLA at the Invention Studio (FDM,
+  Bambu Lab X1E), oriented on a side face so the pivot holes printed as
+  vertical circles with no supports.
+- Printed the connection pins in PETG. Removed supports and brim with
+  flush cutters, filed the tongue and fork faces flush.
+- Assembled the finger with pin fragments, confirmed both joints rotate
+  ~90 degrees in each direction.
+- Redesigned the pin as a two-part lap joint (v2) and widened nothing
+  else.
+- Added a knuckle shell over the joints and a tapered lip that acts as
+  a hyperextension stop.
+
+**What went wrong:**
+
+1. **PETG pins came out stringy**, specifically on the slotted barb at
+   the tip. Printing them vertically did not help. The barb halves were
+   0.72 mm thick with a slot between them — too fine a feature for FDM
+   in a material that strings as much as PETG.
+
+2. **The pins snapped during insertion** and would not have fitted even
+   if the barb had compressed cleanly. The barb was Ø4.05 going into a
+   3.2 mm hole, so each half had to deflect ~0.43 mm over an 11 mm
+   cantilever, in a brittle printed part.
+
+3. **Discovered the fix by accident:** after the pins broke in half, the
+   plain shaft fragments fitted the holes perfectly. Pushed one fragment
+   into each side of a joint and the finger assembled and moved well.
+   The barb was the fragile part and it turned out to be unnecessary.
+
+**What I learned:**
+
+- Feature size has to be matched to the process, not just to the design
+  intent. A snap fit asks a brittle material to flex, which is the one
+  thing it is bad at.
+- Material choice drives stringing far more than print orientation does.
+- A simpler mechanism that cannot fail beats a clever one that can. The
+  two-stub pin has no flexing feature at all.
+- Choosing a different manufacturing process per part (SLA for fine
+  features, FDM for the bulk parts) is a legitimate design decision.
+
+**v2 changes:**
+
+- **Pin:** two-part lap joint. Head Ø6 x 1.5, shaft Ø2.88 x 11 mm,
+  with the last ~4.2 mm cut down to a 1.28 mm flat so two pins overlap
+  inside the tongue. Mated thickness 2.56 mm inside a 2.88 mm envelope.
+  Combined reach 17.8 mm across a 17 mm joint stack, leaving ~0.8 mm
+  axial play. No slot, no barb, nothing to snap.
+- **Segments:** knuckle shell added over the joints; tapered lip added
+  as a hyperextension stop so the finger stops at straight.
+
+**Tendon routing decided:**
+
+- Flexor runs through the bottom channel of all three segments, anchored
+  at the tip. Extensor runs through the top channel of all three.
+- The direction a tendon turns a joint depends on which side of the
+  pivot it passes. Below the pivot closes the joint, above it opens it.
+  A line through the pivot centre produces no torque at all.
+- Flexion limited to ~90 degrees. Beyond that the tendon line crosses
+  the pivot axis and pulling would start to extend the joint instead
+  (over-centre).
+- Planned: connect the two channels with a cross-hole near the distal
+  tip so one continuous loop serves as both flexor and extensor, with
+  no knot to slip.
+
+**Open questions:**
+
+- Whether the tendon channels should move further from the pivot
+  (4 mm -> 2.5 mm from the bottom face) for a larger moment arm.
+- Whether a single flexor will curl the fingertip before the base joint
+  closes, which would shrink the grip aperture.
+- Whether the lap pins migrate outward in use. Fallback is a dab of glue
+  in the fork prong holes only, leaving the tongue free to rotate.
+
+**Next step:** reprint segments and 8 lap pins. Thread a tendon and
+confirm flexion direction by hand before motorising.
+
+**Photos:** docs/photos/
 
 ### Template to copy for each session
 
