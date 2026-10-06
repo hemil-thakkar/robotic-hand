@@ -168,6 +168,93 @@ confirm flexion direction by hand before motorising.
 
 **Photos:** docs/photos/
 
+## 2026-10-06 — Session 3: tendon routing tests and v2 redesign
+
+**Goal:** Work out why the tendons produced so little flexion, then
+redesign the finger around what the tests showed.
+
+### Tendon routing experiments
+
+Strung the printed v1 finger with dental floss, knotted at the tip, and
+pulled by hand.
+
+- **Both tendons strung conventionally (flexor bottom, extensor top):**
+  very little flexion, roughly 25-30 degrees per joint, and it would not
+  go further no matter how much string was pulled through.
+- **Routed top-bottom-bottom instead:** significantly more range of
+  motion from the same pull.
+
+**What that means:** the limit was never string travel, it was torque.
+The crossing route makes the string wrap around the rounded tongue tip
+instead of taking a short chord between two channel exits. The tip is a
+7.5 mm half-round centred on the pivot, so the wrapped string gets a
+7.5 mm moment arm instead of 3.5 mm — more than double the torque for
+the same pull.
+
+This is also roughly how real flexor tendons work: they ride over the
+joint, held against it by fibrous pulleys, rather than running straight
+through the bone.
+
+Several things had to be ruled out first — the base not being anchored,
+knots pulling into the channels, friction at square channel exits, and
+the joint simply running out of mechanical travel. Isolating one joint
+at a time was what made the result readable.
+
+### v2 changes
+
+- **Knuckles** added to the proximal and middle segments to restrict
+  hyperextension.
+- **Proximal segment** now ends in a ball joint with tendon channels
+  through the ball, giving rotation beyond simple flexion/extension
+  plus a few degrees of side-to-side wiggle. Channel positions moved
+  further from the pivot for a larger moment arm.
+- **Middle segment:** channels moved further from the pivot, and the
+  paths swept in a cross shape so the same top-to-bottom crossing that
+  happens between proximal and middle also happens between middle and
+  distal.
+- **Distal segment:** channels moved further from the pivot to maximise
+  flexion.
+- **Connection pins:** replaced the snap-fit barb with two interlocking
+  halves (lap joint). The v1 barb was 0.72 mm thick with a slot through
+  it, which came out stringy in PETG and snapped on insertion. The v2
+  pin has no flexing feature at all — head Ø6 x 1.5, shaft Ø2.88 x 11,
+  with the last 4.2 mm cut to a 1.28 mm flat so two pins overlap inside
+  the tongue.
+- **Socket** designed for the proximal ball joint, with tendon channels
+  in the base to carry the tendons from finger to hand. The mouth is a
+  slot on one side only: open in the flexion direction (~14 mm, giving
+  ~90 degrees), narrow across (8 mm, giving ~6-8 degrees of side-to-side),
+  and closed on the other side to prevent hyperextension at this joint.
+
+### Bugs caught by STL analysis
+
+Two defects showed in the exported meshes but not in the CAD, both the
+same cause: the ball and neck were modelled as separate bodies that
+overlapped the segment rather than being joined to it. Overlapping
+bodies render as one solid on screen, so nothing looked wrong, but the
+mesh wrote an inside-out shell where they intersected — reported as a
+second body with negative volume, plus a phantom void through the centre
+of the ball. Fixed with Modify > Combine > Join. The void's diameter
+matched the neck's exactly, which is what identified it.
+
+**Lesson:** check body count in the exported mesh, not just the
+on-screen model.
+
+### Open questions
+
+- Whether the crossing channel sweep reproduces the wrap effect, or
+  whether a dedicated groove around the tongue tip would be better.
+- Whether a single flexor tendon curls the fingertip before the base
+  joint closes, shrinking the grip aperture.
+- Whether the cap screws are strong enough to retain the ball under
+  load, since the base bowl is cut at the equator and provides no
+  retention on its own.
+
+**Next:** print all six parts (3 segments, 8 lap pins, socket base,
+socket cap), assemble, and test the full finger with poly tennis string
+and an elastic return before adding a servo.
+
+
 ### Template to copy for each session
 
 ```
