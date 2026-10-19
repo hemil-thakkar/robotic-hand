@@ -6,7 +6,7 @@ they're what you'll talk about in an interview.
 
 ---
 
-## 2026-09-27 — Session 1: first servo test
+## 2026-09-27 — Session 1: first servo test (simulation)
 
 **Goal:** The goal was to just test sample code for a servo on wokwi.com
 
@@ -18,10 +18,10 @@ they're what you'll talk about in an interview.
 
 **Next step:** Continue to CAD and learn more about Arduino
 
-**Photos:** [robotic-hand/photos/robotic-hand-servo-test](url)
+**Photos:** [photos/robotic-hand-servo-test.png](../photos/robotic-hand-servo-test.png)
 
 ---
-## 2026-09-27 — Session 1: designed three finger segments in Fusion
+## 2026-09-27 — Session 2: designed three finger segments in Fusion
 
 **Goal:** Learn CAD by designing a tendon-driven finger from scratch
 before looking at how InMoov solved it.
@@ -81,9 +81,9 @@ Exported STLs.
 and tolerances before printing all three. Source 2× M3 bolts and nyloc
 nuts (~22–25 mm long) from Robo 101, WEAR, or the Hive.
 
-**Photos:** [photos/robotic-hand-servo-test.png](url)
+**Photos:** [photos/fusion-render-v1-finger.png](../photos/fusion-render-v1-finger.png)
 
-## 2026-09-30 — Session 2: first prints, pin failure, v2 redesign
+## 2026-09-30 — Session 3: first prints, pin failure, v2 redesign
 
 **Goal:** Print the three finger segments and the snap-fit pivot pins,
 assemble the finger, and check fit and range of motion.
@@ -166,9 +166,9 @@ assemble the finger, and check fit and range of motion.
 **Next step:** reprint segments and 8 lap pins. Thread a tendon and
 confirm flexion direction by hand before motorising.
 
-**Photos:** docs/photos/
+---
 
-## 2026-10-06 — Session 3: tendon routing tests and v2 redesign
+## 2026-10-06 — Session 4: tendon routing tests and v2 redesign
 
 **Goal:** Work out why the tendons produced so little flexion, then
 redesign the finger around what the tests showed.
@@ -254,10 +254,13 @@ on-screen model.
 socket cap), assemble, and test the full finger with poly tennis string
 and an elastic return before adding a servo.
 
+**Photos:** [photos/full-finger-v2.png](../photos/full-finger-v2.png),
+[photos/ball-joint-rom-v2-a.png](../photos/ball-joint-rom-v2-a.png),
+[photos/ball-joint-rom-v2-b.png](../photos/ball-joint-rom-v2-b.png)
 
 ---
 
-## 2026-10-10 — Session 4: palm v2
+## 2026-10-10 — Session 5: palm v3
 
 **Goal:** Redesign the palm so it can hold a thumb and curve like a real
 hand, and round out the wrist for a future splint or wrist controls.
@@ -301,11 +304,11 @@ hand, and round out the wrist for a future splint or wrist controls.
 **Next step:** Print the palm with one finger and check that the sockets
 and cap seat properly.
 
-**Photos:** [photos/palm-v2-preview.png](../photos/palm-v2-preview.png)
+**Photos:** [photos/palm-v3-preview.png](../photos/palm-v3-preview.png)
 
 ---
 
-## 2026-10-14 — Session 5: knuckle joint v5 (tendons through the ball joint)
+## 2026-10-14 — Session 6: knuckle joint v5 (tendons through the ball joint)
 
 **Goal:** Get both tendons through the ball-and-socket knuckle and reach
 a full 90° of flexion, using 17-gauge (1.25 mm) poly tennis string.
@@ -373,7 +376,7 @@ string):
 
 **Open question:**
 
-- Session 3 routed the flexor top-bottom-bottom, so it sits in the
+- Session 4 routed the flexor top-bottom-bottom, so it sits in the
   *top* channel of the proximal. The v5 knuckle needs the flexor in the
   proximal's *palm-side* channel. Test which routing flexes all three
   joints on the test finger.
