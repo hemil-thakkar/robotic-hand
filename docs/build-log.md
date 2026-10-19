@@ -1,6 +1,6 @@
 # Build log
 
-Newest entries at the top. For each session, note what you did, what
+Entries in date order, oldest first. For each session, note what you did, what
 went wrong, and what you'd change. The failures are the useful part —
 they're what you'll talk about in an interview.
 
@@ -10,7 +10,7 @@ they're what you'll talk about in an interview.
 
 **Goal:** The goal was to just test sample code for a servo on wokwi.com
 
-**What I did:** Added code from Claude to the Arduino UNO simulation, added servo into the simulation and its libraries
+**What I did:** Added sample servo code to the Arduino UNO simulation, added the servo and its libraries to the simulation
 
 **What went wrong:** Initially forgot to add libraries to simulation
 
@@ -254,6 +254,144 @@ on-screen model.
 socket cap), assemble, and test the full finger with poly tennis string
 and an elastic return before adding a servo.
 
+
+---
+
+## 2026-10-10 — Session 4: palm v2
+
+**Goal:** Redesign the palm so it can hold a thumb and curve like a real
+hand, and round out the wrist for a future splint or wrist controls.
+
+**What I did:**
+
+- **Arch:** curved the palm across its width (15° total), flat near the
+  wrist and fully curved by the knuckles, with a smooth curve instead of
+  a sharp fold. Finger slots roll with it: index −7.5°, middle 0°,
+  ring 7.5°, pinky 15°.
+- **Wrist:** rounded oval (60 × 29 mm) instead of a rectangle.
+- **Wrist cap:** new round cap with a D-shaped flat so it only fits one
+  way. 12 tendon holes in 6 columns (thumb, index, middle, ring, pinky,
+  plus one spare) × 2 rows (palm side = flexors). No labels, since small
+  printed text came out unreadable last time.
+- **Tendon paths:** 15 × 15 mm tunnels from each finger slot that merge
+  into one funnel chamber leading to the wrist cap.
+- **Thumb:** housing for an MG90S micro servo in the thenar area (base
+  of the thumb), with a hinge lug, a thumb tendon channel, and a channel
+  for the servo wires. The thumb will swing across the palm on the servo
+  and flex on its own tendon.
+
+**What went wrong (caught before printing):**
+
+1. The servo's top and mounting tabs collided with palm material, and
+   the screw slot came out as a sealed void inside the part. Fixed with
+   clearance cuts.
+2. Several walls came out too thin: the funnel was too tall at first,
+   and the thumb tendon channel's floor was too thin. Fixed by reshaping
+   the funnel and raising the channel.
+3. Thin wedges where the tunnels split were left as-is, since they're
+   small and non-structural.
+
+**What I learned:**
+
+- Fit-check every part that goes into a pocket (servo body, tabs,
+  screws, wires) against the walls, not just the main body.
+- A rounded wrist costs almost nothing now and keeps options open for
+  wrist rotation and a splint later.
+
+**Next step:** Print the palm with one finger and check that the sockets
+and cap seat properly.
+
+**Photos:** [photos/palm-v2-preview.png](../photos/palm-v2-preview.png)
+
+---
+
+## 2026-10-14 — Session 5: knuckle joint v5 (tendons through the ball joint)
+
+**Goal:** Get both tendons through the ball-and-socket knuckle and reach
+a full 90° of flexion, using 17-gauge (1.25 mm) poly tennis string.
+
+**What went wrong with v2:**
+
+1. **No room for the string.** The ball fit the socket with only
+   ~0.15 mm of clearance. The tendon channels went straight through the
+   ball and came out behind the pivot, inside the bowl, but the socket
+   holes were 1.75 mm further out (±6.75 vs ±5 mm). The string had to
+   squeeze between the ball and the bowl.
+2. **Uncrossed strings would have worked backwards.** Because the
+   channels came out behind the pivot, pulling the palm-side string
+   would have *straightened* the finger. That's why crossing seemed
+   necessary.
+3. **The base stopped the finger at ~60°.** Only the cap had a slot, so
+   the neck hit the base rim before 90°.
+4. **The cap blocked the back-side string.** Its opening is 4 mm from
+   center and the string runs at 5 mm.
+
+**Options considered:**
+
+- **Cross both strings under the ball in grooves.** This gives a
+  constant ~4.9 mm moment arm, but two strings crossing need separate
+  side-by-side grooves, which puts them off-center. The neck is round,
+  so nothing stops the finger rolling: off-center strings would twist
+  it. The crossed extensor would also need a notch in the base of the
+  neck near full bend. And both strings make a ~140° U-turn into their
+  holes, which is bad for stiff tennis string.
+- **Uncrossed, centered (chosen).**
+
+**v5 changes:**
+
+- **Proximal segments (all four fingers):** channels now stop at the
+  body instead of tunneling through the ball. One 2.0 mm groove wraps
+  around the back of the ball (±130°), on the center line.
+- **Socket base:** 8.4 mm slot on both sides, cut down to 6 mm, so the
+  finger reaches 90° and the slot floor is the stop (~92°). Two Ø2.2
+  holes on the center line, 5 mm toward the palm and toward the back,
+  with chamfered edges. A small channel in the slot floor keeps the
+  string under the neck at full bend. Same either way round.
+- **Socket cap:** added a 2.6 mm slot on the back side for the extensor.
+- **Middle segments v3:** more spacing at the forks (my change).
+
+**Checked before printing** (all three parts assembled, 1.25 mm
+string):
+
+- No collisions from straight to 93°.
+- Both string paths clear at every angle.
+- The palm-side string bends the finger; pulling ~9.3 mm takes it from
+  straight to 90°, with a 5.5–6.5 mm moment arm.
+- The back-side string pays out ~7.9 mm over the same bend (~5 mm
+  arm). If one servo drives both, the extensor goes ~1.4 mm slack by
+  full bend, so it needs a small spring.
+
+**What I learned:**
+
+- Crossing isn't what makes a tendon flex a joint. What matters is
+  which side of the pivot the string leaves the segment on, and staying
+  off-center from the pivot the whole way.
+- Check clearances with every part assembled, including the cap. Each
+  part looked fine on its own.
+- On a ball joint, keep tendons on the center line. Nothing else resists
+  twisting.
+
+**Open question:**
+
+- Session 3 routed the flexor top-bottom-bottom, so it sits in the
+  *top* channel of the proximal. The v5 knuckle needs the flexor in the
+  proximal's *palm-side* channel. Test which routing flexes all three
+  joints on the test finger.
+
+**Next step:** Print the palm, one middle finger (v5 proximal + v3
+middle + distal + pins), 2 socket bases and 1 cap. Check:
+
+1. Socket fits the palm and the cap pegs snap together
+2. The ball groove printed clean, with no support stuck in it
+3. Tennis string passes through the channels (drill with 2 mm if tight)
+4. Finger reaches 90° by hand with strings in
+5. Flexor pull bends it smoothly; extensor pull straightens it
+
+**Photos:**
+[photos/joint-v5-section.png](../photos/joint-v5-section.png),
+[photos/joint-v5-why-flexor-flexes.png](../photos/joint-v5-why-flexor-flexes.png)
+
+---
 
 ### Template to copy for each session
 
