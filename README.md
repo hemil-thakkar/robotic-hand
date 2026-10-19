@@ -18,9 +18,11 @@ Biomedical engineering, Georgia Tech.
 
 ## Status
 
-**Stage 0 — first finger.** Repo set up. Next: print the InMoov finger
-parts at the Georgia Tech Invention Studio, then assemble and string
-the tendon.
+**Stage 1 — first finger + palm.** Designed my own three-segment finger
+(v1 → v2 → v5 knuckle joint), a ball-and-socket knuckle with tendon
+routing for 1.25 mm tennis string, and a curved palm (v2) with a servo
+housing for the thumb. Next: print the palm and one finger to test the
+v5 joint, then the other three fingers.
 
 See [`docs/build-log.md`](docs/build-log.md) for session notes.
 
@@ -42,11 +44,6 @@ See [`docs/build-log.md`](docs/build-log.md) for session notes.
 - Arduino for servo control
 
 ## Credit
-
-Mechanical design based on the InMoov open-source humanoid robot by
-Gael Langevin, licensed CC-BY-NC. Files in `cad/reference/` are his.
-My own parts and code are in `cad/`, `code/`, and noted as mine in the
-build log.
 
 Mechanical design based on the InMoov open-source humanoid robot by
 Gael Langevin, licensed CC-BY-NC. Files in `cad/reference/` are his.
